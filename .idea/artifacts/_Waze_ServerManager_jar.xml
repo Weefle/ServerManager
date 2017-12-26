@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="[Waze]ServerManager:jar">
+    <output-path>$USER_HOME$/Documents/idea</output-path>
+    <root id="archive" name="[Waze]ServerManager.jar">
+      <element id="module-output" name="[Waze]ServerManager" />
+    </root>
+  </artifact>
+</component>

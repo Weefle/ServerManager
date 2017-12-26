@@ -1,0 +1,5 @@
+name: WazeServerManager
+author: Weefle
+version: 0.1
+description: WazeServerManager's plugin
+main: fr.weefle.servermanager.Main
