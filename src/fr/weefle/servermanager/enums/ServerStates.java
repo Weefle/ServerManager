@@ -9,7 +9,7 @@ public enum ServerStates {
 
     private int id;
 
-    private ServerStates(int id) {
+    ServerStates(int id) {
        this.id = id;
     }
 
