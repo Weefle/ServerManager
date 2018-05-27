@@ -7,7 +7,7 @@ import java.nio.file.Path;
 
 public class FilesUtils {
 
-    public void copyFolder(File source, File destination){
+    public static void copyFolder(File source, File destination){
 
         try {
             Files.walk(source.toPath()).forEach(path -> {
@@ -24,7 +24,7 @@ public class FilesUtils {
 
     }
 
-    public void deleteFolder(File source){
+    public static void deleteFolder(File source){
         try {
             Files.walk(source.toPath()).filter(Files::isRegularFile).map(Path::toFile).forEach(File::delete);
         } catch (IOException e) {

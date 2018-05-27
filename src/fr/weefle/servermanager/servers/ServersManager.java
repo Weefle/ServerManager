@@ -9,6 +9,20 @@ public class ServersManager {
     public ServersManager() {
         servers = new HashMap<>();
     }
+    
+    public void addServer(Server server) {
+    	
+    	if(!exists(server.getServername())) {
+    		servers.put(server.getServername(), server);
+    	}
+    	
+    }
+    
+    public void removeServer(String servername) {
+    	if(exists(servername)) {
+    		servers.remove(servername);
+    	}
+    }
 
     public boolean exists(String servername){
         return servers.containsKey(servername);
