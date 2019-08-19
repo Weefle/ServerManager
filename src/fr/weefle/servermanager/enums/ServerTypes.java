@@ -2,16 +2,17 @@ package fr.weefle.servermanager.enums;
 
 public enum ServerTypes {
 
-    SKYWARS(0, "SkyWars", "skywars"),
-    RUSHWARS(1, "RushWars", "rushwars");
+    SKYWARS(0, "SkyWars", "skywars", 2048),
+    RUSHWARS(1, "RushWars", "rushwars", 2048);
 
-    private int id;
+    private int id,memory;
     private String name, model;
 
-    ServerTypes(int id, String name, String model) {
+    ServerTypes(int id, String name, String model, int memory) {
         this.id = id;
         this.name = name;
         this.model = model;
+        this.memory = memory;
     }
 
     public int getId() {
@@ -24,5 +25,9 @@ public enum ServerTypes {
 
     public String getModel() {
         return model;
+    }
+    
+    public int getMemory() {
+        return memory;
     }
 }
