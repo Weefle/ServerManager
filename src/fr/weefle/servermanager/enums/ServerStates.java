@@ -16,4 +16,8 @@ public enum ServerStates {
     public int getId() {
         return id;
     }
+    
+    public static ServerStates getById(int id) {
+    	return ServerStates.values()[id];
+    }
 }

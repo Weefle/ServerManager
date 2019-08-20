@@ -30,4 +30,8 @@ public enum ServerTypes {
     public int getMemory() {
         return memory;
     }
+    
+    public static ServerTypes getById(int id) {
+    	return ServerTypes.values()[id];
+    }
 }

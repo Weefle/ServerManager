@@ -31,5 +31,15 @@ public class ServersManager {
     public boolean isUsedPort(int port){
         return servers.values().stream().filter(server -> server.getServerport() == port).count() > 0;
     }
+    
+    public  Server getServer(String servername) {
+    	
+    	return servers.get(servername);
+    	
+    }
+    
+    public void removeAll() {
+    	servers.values().forEach(server -> server.killServer());
+    }
 
 }

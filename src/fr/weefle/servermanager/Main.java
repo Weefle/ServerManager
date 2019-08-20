@@ -1,6 +1,10 @@
 package fr.weefle.servermanager;
 
+import fr.weefle.servermanager.commands.ServerCreate;
+import fr.weefle.servermanager.commands.ServerKill;
+import fr.weefle.servermanager.events.KickEventListener;
 import fr.weefle.servermanager.servers.ServersManager;
+import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.plugin.Plugin;
 
 public class Main extends Plugin {
@@ -11,12 +15,14 @@ public class Main extends Plugin {
     public void onEnable() {
         instance = this;
         serversManager = new ServersManager();
-        super.onEnable();
+        ProxyServer.getInstance().getPluginManager().registerCommand(this, new ServerCreate());
+        ProxyServer.getInstance().getPluginManager().registerCommand(this, new ServerKill());
+        ProxyServer.getInstance().getPluginManager().registerListener(this, new KickEventListener());
     }
 
     @Override
     public void onDisable() {
-        super.onDisable();
+       serversManager.removeAll();
     }
 
     public static Main getInstance() {

@@ -6,8 +6,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
 
 public class FilesUtils {
 
@@ -45,11 +43,22 @@ public class FilesUtils {
     }
 
     public static void deleteFolder(File source){
-        try {
-            Files.walk(source.toPath()).filter(Files::isRegularFile).map(Path::toFile).forEach(File::delete);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+         
+    	File[] files = source.listFiles();
+    	if(files !=null) {
+    		File[] arrayofFiles;
+    		int j = (arrayofFiles = files).length;
+    		for(int i=0; i<j; i++) {
+    			File f = arrayofFiles[i];
+    			if(f.isDirectory()) {
+    				deleteFolder(f);
+    			}else {
+    				f.delete();
+    			}
+    		}
+    	}
+    	source.delete();
+      
     }
 
 }
